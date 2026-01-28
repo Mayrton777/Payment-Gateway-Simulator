@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # Banco de Dados SQL Server
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: payment_sql_server
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=${SA_PASSWORD}
+    ports:
+      - "${SQL_PORT}:1433"
+    volumes:
+      - sql_data:/var/opt/mssql
+
+  # Cache Redis
+  cache:
+    image: redis:alpine
+    container_name: payment_redis
+    ports:
+      - "${REDIS_PORT}:6379"
+
+  # API
+  api:
+    build:
+      context: ./src/PaymentApi
+      dockerfile: Dockerfile
+    container_name: payment_api
+    environment:
+      - ConnectionStrings__DefaultConnection=Server=db;Database=PaymentDb;User Id=sa;Password=${SA_PASSWORD};TrustServerCertificate=True;
+      - ConnectionStrings__RedisConnection=cache:6379
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:${API_PORT}
+    ports:
+      - "${API_PORT}:8080"
+    depends_on:
+      - db
+      - cache
+
+volumes:
+  sql_data:

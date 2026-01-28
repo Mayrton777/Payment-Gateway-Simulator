@@ -1,0 +1,22 @@
+# --- .NET & Visual Studio ---
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.userprefs
+
+# --- Chaves & Ambiente Local ---
+.env
+appsettings.Development.json
+
+# --- Docker ---
+docker-compose.override.yml
+
+# --- Sistema Operacional ---
+.DS_Store
+Thumbs.db
+
+# --- Logs ---
+*.log
