@@ -50,8 +50,8 @@ O projeto segue os princípios de separação de responsabilidades:
 ## 🗺️ Roadmap (Próximos Passos)
 
 - [x] Configuração do Ambiente Docker (SQL + Redis + .NET 9)
-- [ ] Modelagem do Domínio (Transaction, CreditCard)
-- [ ] Implementação do Repositório com EF Core
+- [x] Modelagem do Domínio (Transaction, CreditCard)
+- [x] Implementação do Repositório com EF Core
 - [ ] Serviço de Processamento com Idempotência (Redis)
 - [ ] Testes Unitários com xUnit
 
