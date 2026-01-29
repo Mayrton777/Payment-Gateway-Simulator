@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
+using PaymentApi.Infrastructure.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,15 +12,13 @@ builder.Services.AddSwaggerGen();
 // Configura Redis
 // Pega a string de conexão do docker-compose
 var redisConnection = builder.Configuration.GetConnectionString("RedisConnection") ?? "localhost:6379";
-builder.Services.AddSingleton<IConnectionMultiplexer>(ConnectionMultiplexer.Connect(redisConnection));
+builder.Services.AddSingleton<IConnectionMultiplexer>(
+    ConnectionMultiplexer.Connect($"{redisConnection},abortConnect=false"));
 
 // Configurar SQL Server
-// O "TrustServerCertificate=True" é crucial para desenvolvimento local com Docker
 var sqlConnection = builder.Configuration.GetConnectionString("DefaultConnection");
-if (!string.IsNullOrEmpty(sqlConnection))
-{
-    // AQUI ENTRARA O DB CONECT NO FUTURO
-}
+builder.Services.AddDbContext<PaymentDbContext>(options =>
+    options.UseSqlServer(sqlConnection));
 
 var app = builder.Build();
 
