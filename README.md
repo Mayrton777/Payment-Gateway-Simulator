@@ -47,13 +47,21 @@ O projeto segue os princípios de separação de responsabilidades:
     Aguarde os logs de inicialização e acesse:
     👉 http://localhost:8080/swagger
 
-## 🗺️ Roadmap (Próximos Passos)
-
-- [x] Configuração do Ambiente Docker (SQL + Redis + .NET 9)
+### ✅ Fase 1: Fundação & Resiliência (Concluído)
+Foco na construção de uma API robusta, testável e com garantia de consistência de dados.
+- [x] Configuração do Ambiente Docker (SQL Server + Redis + .NET 9)
 - [x] Modelagem do Domínio (Transaction, CreditCard)
 - [x] Implementação do Repositório com EF Core
 - [x] Serviço de Processamento com Idempotência (Redis)
-- [x] Testes Unitários com xUnit
+- [x] Testes Unitários com xUnit e Moq
+
+### 🚧 Fase 2: Segurança & Escalabilidade (Em Breve)
+Foco em proteger a aplicação e preparar o processamento para alto volume de dados.
+- [ ] Implementação de Autenticação e Autorização (JWT / Identity)
+- [ ] Proteção de rotas com Swagger Autenticado
+- [ ] Implementação de Mensageria com RabbitMQ (Produtor/Consumidor)
+- [ ] Criação de Background Workers para processamento assíncrono
+- [ ] Pipeline de CI/CD (GitHub Actions)
 
 ---
 Desenvolvido por Mayrton Eduardo.
