@@ -41,6 +41,12 @@ public class Transaction
         if (Status != PaymentStatus.Pending) return;
         Status = PaymentStatus.Declined;
     }
+
+    public void SetCreditCard(CreditCard card)
+    {
+        CreditCard = card;
+        CreditCardId = card.Id;
+    }
 }
 
 // Pequena classe auxiliar para exceções de domínio
