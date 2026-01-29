@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using StackExchange.Redis;
+using PaymentApi.Application.Interfaces;
+using PaymentApi.Application.Services;
 using PaymentApi.Domain.Interfaces;
 using PaymentApi.Infrastructure.Data;
 using PaymentApi.Infrastructure.Repositories;
@@ -24,6 +26,7 @@ builder.Services.AddDbContext<PaymentDbContext>(options =>
 
 // Injeção de Dependência dos Repositórios
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
 
 var app = builder.Build();
 

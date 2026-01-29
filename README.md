@@ -52,7 +52,7 @@ O projeto segue os princípios de separação de responsabilidades:
 - [x] Configuração do Ambiente Docker (SQL + Redis + .NET 9)
 - [x] Modelagem do Domínio (Transaction, CreditCard)
 - [x] Implementação do Repositório com EF Core
-- [ ] Serviço de Processamento com Idempotência (Redis)
+- [x] Serviço de Processamento com Idempotência (Redis)
 - [ ] Testes Unitários com xUnit
 
 ---
