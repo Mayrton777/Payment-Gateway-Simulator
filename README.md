@@ -53,7 +53,7 @@ O projeto segue os princípios de separação de responsabilidades:
 - [x] Modelagem do Domínio (Transaction, CreditCard)
 - [x] Implementação do Repositório com EF Core
 - [x] Serviço de Processamento com Idempotência (Redis)
-- [ ] Testes Unitários com xUnit
+- [x] Testes Unitários com xUnit
 
 ---
 Desenvolvido por Mayrton Eduardo.
