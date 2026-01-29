@@ -47,6 +47,8 @@ O projeto segue os princípios de separação de responsabilidades:
     Aguarde os logs de inicialização e acesse:
     👉 http://localhost:8080/swagger
 
+## 🗺️ Roadmap
+
 ### ✅ Fase 1: Fundação & Resiliência (Concluído)
 Foco na construção de uma API robusta, testável e com garantia de consistência de dados.
 - [x] Configuração do Ambiente Docker (SQL Server + Redis + .NET 9)
